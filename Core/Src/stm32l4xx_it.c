@@ -221,14 +221,14 @@ void DMA1_Channel6_IRQHandler(void)
 	{
 		DMA1->IFCR |= ( 1 << 20 ); // clear flag
 	}
-	/* USER CODE END DMA1_Channel6_IRQn 0 */
+  /* USER CODE END DMA1_Channel6_IRQn 0 */
 
   /* USER CODE BEGIN DMA1_Channel6_IRQn 1 */
 
   /* USER CODE END DMA1_Channel6_IRQn 1 */
 }
 
-/**z
+/**
   * @brief This function handles I2C1 event interrupt.
   */
 void I2C1_EV_IRQHandler(void)

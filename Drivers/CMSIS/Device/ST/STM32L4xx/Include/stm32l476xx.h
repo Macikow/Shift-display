@@ -6834,7 +6834,7 @@ typedef struct
 #define DMA_IFCR_CTEIF5        DMA_IFCR_CTEIF5_Msk                             /*!< Channel 5 Transfer Error clear */
 #define DMA_IFCR_CGIF6_Pos     (20U)
 #define DMA_IFCR_CGIF6_Msk     (0x1UL << DMA_IFCR_CGIF6_Pos)                   /*!< 0x00100000 */
-#define TCIF6         DMA_IFCR_CGIF6_Msk                              /*!< Channel 6 Global interrupt clear */
+#define DMA_IFCR_CGIF6         DMA_IFCR_CGIF6_Msk                              /*!< Channel 6 Global interrupt clear */
 #define DMA_IFCR_CTCIF6_Pos    (21U)
 #define DMA_IFCR_CTCIF6_Msk    (0x1UL << DMA_IFCR_CTCIF6_Pos)                  /*!< 0x00200000 */
 #define DMA_IFCR_CTCIF6        DMA_IFCR_CTCIF6_Msk                             /*!< Channel 6 Transfer Complete clear */

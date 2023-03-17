@@ -1953,7 +1953,7 @@ __STATIC_INLINE void LL_DMA_ClearFlag_GI5(DMA_TypeDef *DMAx)
   */
 __STATIC_INLINE void LL_DMA_ClearFlag_GI6(DMA_TypeDef *DMAx)
 {
-
+  WRITE_REG(DMAx->IFCR, DMA_IFCR_CGIF6);
 }
 
 /**

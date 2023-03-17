@@ -94,22 +94,22 @@ int main(void)
   MX_USART2_UART_Init();
   /* USER CODE BEGIN 2 */
   SSD1309_init();
-  shift_display_fill_buffer("przykladowy napis");
+  shift_display_fill_buffer("1234567890 qwertasdf");
   shift_display_handler();
   /* USER CODE END 2 */
+
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
     /* USER CODE END WHILE */
-	  for(uint32_t i=0; i< 700000; i++)
-	  {
-		  asm("nop");
+	  for(uint32_t i=0; i< 350000; i++)
+	  	  {
+	  		  asm("nop");
 
-	  }
-	 GPIOA->ODR ^= (1<<5);
-	 shift_display_handler();
-//	  val++;
+	  	  }
+	  	 GPIOA->ODR ^= (1<<5);
+	  	 shift_display_handler();
     /* USER CODE BEGIN 3 */
   }
   /* USER CODE END 3 */
@@ -235,13 +235,12 @@ static void MX_I2C1_Init(void)
   LL_I2C_DisableGeneralCall(I2C1);
   LL_I2C_EnableClockStretching(I2C1);
   I2C_InitStruct.PeripheralMode = LL_I2C_MODE_I2C;
-  I2C_InitStruct.Timing = 0x10909CEC;
+  I2C_InitStruct.Timing = 0x00909CEC;
   I2C_InitStruct.AnalogFilter = LL_I2C_ANALOGFILTER_ENABLE;
   I2C_InitStruct.DigitalFilter = 0;
   I2C_InitStruct.OwnAddress1 = 0;
   I2C_InitStruct.TypeAcknowledge = LL_I2C_ACK;
   I2C_InitStruct.OwnAddrSize = LL_I2C_OWNADDRESS1_7BIT;
-
   LL_I2C_Init(I2C1, &I2C_InitStruct);
   LL_I2C_SetOwnAddress2(I2C1, 0, LL_I2C_OWNADDRESS2_NOMASK);
   /* USER CODE BEGIN I2C1_Init 2 */
@@ -314,17 +313,17 @@ static void MX_DMA_Init(void)
   /* DMA controller clock enable */
   __HAL_RCC_DMA1_CLK_ENABLE();
 
-  /* DMA interrupt init */
-
   DMA1_CSELR->CSELR |= (3 << 20);
   DMA1_Channel6->CPAR = (uint32_t) & (I2C1->TXDR);
   //DMA1_Channel6->CMAR = (uint32_t) & (TX_DMA_buffer);
   DMA1_Channel6->CNDTR = TX_I2C_DATALENGHT;
   DMA1_Channel6->CCR |= DMA_CCR_DIR | DMA_CCR_PL_1 | DMA_CCR_TCIE | DMA_CCR_MINC | DMA_CCR_HTIE ;
+
+  /* DMA interrupt init */
   /* DMA1_Channel6_IRQn interrupt configuration */
   NVIC_SetPriority(DMA1_Channel6_IRQn, NVIC_EncodePriority(NVIC_GetPriorityGrouping(),0, 0));
   NVIC_EnableIRQ(DMA1_Channel6_IRQn);
-  DMA1_Channel6->CCR |= DMA_CCR_EN;
+
 }
 
 /**
