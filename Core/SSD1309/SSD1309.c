@@ -25,7 +25,7 @@ uint8_t SSD1309_tz_buff[BUFFER_SIZE];
 const uint8_t table[TABLE_SIZE][4]={
 					{1, 0x00, 0x00, 0x00},
 					{1, SSD1306_DISPLAY_OFF,0,0},  								//[0] 0xAE  Set Display OFF
-					{2, SSD1306_SET_MUX_RATIO,63,0},							//[1] 0xA8 	64MUX for 128 x 64
+					{2, SSD1306_SET_MUX_RATIO,32,0},							//[1] 0xA8 	64MUX for 128 x 64
 																				//			32MUX for 128 x 32
 					{2, SSD1306_MEMORY_ADDR_MODE,0x00,0x00},					//[2] 0x20	0x00 - horisontal addressing mode
 																				//			0x01 - Vertical adressing mode
@@ -39,7 +39,7 @@ const uint8_t table[TABLE_SIZE][4]={
 					{2, SSD1306_DISPLAY_OFFSET,0x00,0x00},						//[6] 0xD3
 					{1, SSD1306_SEG_REMAP_OP,0x00,0x00},						//[7] 0xA0
 					{1, SSD1306_COM_SCAN_DIR_OP,0x00,0x00},						//[8] 0xC0
-					{2, SSD1306_COM_PIN_CONF,0x12,0x00},						//[9] 0xDA, 0x12 - Disable COM Left/Right Remap, Alterantive VOM pin configuration
+					{2, SSD1306_COM_PIN_CONF,0x02,0x00},						//[9] 0xDA, 0x12 - Disable COM Left/Right Remap, Alterantive VOM pin configuration
 																				//			0x12 - for 128 x 64 version
 																				// 			0x02 - for 128 x 32 version
 

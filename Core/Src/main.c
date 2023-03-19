@@ -103,12 +103,12 @@ int main(void)
   while (1)
   {
     /* USER CODE END WHILE */
-	  for(uint32_t i=0; i< 350000; i++)
+	  for(uint32_t i=0; i< 170000; i++)
 	  	  {
 	  		  asm("nop");
 
 	  	  }
-	  	 GPIOA->ODR ^= (1<<5);
+
 	  	 shift_display_handler();
     /* USER CODE BEGIN 3 */
   }

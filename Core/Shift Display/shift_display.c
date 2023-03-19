@@ -60,10 +60,12 @@ void shift_display_fill_buffer(const char* text)
 }
 void copy_shitf_buffer_2_display(uint16_t shift)
 {
+	GPIOA->ODR |= (1<<5);
 	memcpy(&SSD1309_display_buffer[0], 	 &SSD1309_shift_buffer[0][shift], 128);
 	memcpy(&SSD1309_display_buffer[128], &SSD1309_shift_buffer[1][shift], 128);
 	memcpy(&SSD1309_display_buffer[256], &SSD1309_shift_buffer[2][shift], 128);
 	memcpy(&SSD1309_display_buffer[384], &SSD1309_shift_buffer[3][shift], 128);
+	GPIOA->ODR &= ~(1<<5);
 }
 
 void shift_display_handler()
